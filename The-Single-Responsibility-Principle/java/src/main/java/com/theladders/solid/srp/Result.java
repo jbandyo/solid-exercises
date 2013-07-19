@@ -5,11 +5,11 @@ import java.util.Map;
 
 public class Result
 {
-  private final String type;
+  private final ResultCode type;
   private final Map<String, Object> model;
   private final List<String> errorList;
 
-  public Result(String type,
+  public Result(ResultCode type,
                 Map<String, Object> model)
   {
     this.type  = type;
@@ -17,7 +17,7 @@ public class Result
     this.errorList = null;
   }
 
-  public Result(String type,
+  public Result(ResultCode type,
                 Map<String, Object> model,
                 List<String> errList)
   {
@@ -26,7 +26,7 @@ public class Result
     this.errorList = errList;
   }
 
-  public String getType()
+  public ResultCode getType()
   {
     return type;
   }

@@ -8,7 +8,7 @@ public class HttpResponse
 
   public String getResultType()
   {
-    return result.getType();
+    return result.getType().message();
   }
 
   public void setResult(Result result)
