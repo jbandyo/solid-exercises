@@ -118,12 +118,13 @@ public class TestIt
     JobApplicationSystem jobApplicationSystem = new JobApplicationSystem(jobApplicationRepository);
     ResumeManager resumeManager = new ResumeManager(resumeRepository);
     MyResumeManager myResumeManager = new MyResumeManager(activeResumeRepository);
-
-    controller = new ApplyController(jobseekerProfileManager,
+    
+    ApplyHandler handler = new ApplyHandler(jobseekerProfileManager,
                                      jobSearchService,
                                      jobApplicationSystem,
                                      resumeManager,
                                      myResumeManager);
+    controller = new ApplyController(handler);
   }
 
   @Before
@@ -272,7 +273,7 @@ public class TestIt
     Map<String, String> parameters = new HashMap<>();
     parameters.put("jobId","5");
     parameters.put("makeResumeActive", "yes");
-    parameters.put("Save Me Seymour", SHARED_RESUME_NAME);
+    parameters.put("newResumeFileName", "Save Me Seymour");
 
     HttpRequest request = new HttpRequest(session, parameters);
     controller.getResponse(request);

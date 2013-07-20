@@ -3,28 +3,15 @@ package com.theladders.solid.srp;
 
 import com.theladders.solid.srp.http.HttpRequest;
 import com.theladders.solid.srp.http.HttpResponse;
-import com.theladders.solid.srp.job.JobSearchService;
-import com.theladders.solid.srp.job.application.JobApplicationSystem;
-import com.theladders.solid.srp.jobseeker.JobseekerProfileManager;
-import com.theladders.solid.srp.resume.MyResumeManager;
-import com.theladders.solid.srp.resume.ResumeManager;
-import com.theladders.solid.view.*;
+import com.theladders.solid.view.View;
 
 public class ApplyController
 {
   private final ApplyHandler applyHandler;
 
-  public ApplyController(JobseekerProfileManager jobseekerProfileManager,
-                      JobSearchService jobSearchService,
-                      JobApplicationSystem jobApplicationSystem,
-                      ResumeManager resumeManager,
-                      MyResumeManager myResumeManager)
+  public ApplyController(ApplyHandler _applyHandler)
   {
-    applyHandler = new ApplyHandler(jobseekerProfileManager,
-                                     jobSearchService,
-                                     jobApplicationSystem,
-                                     resumeManager,
-                                     myResumeManager);
+    applyHandler = _applyHandler;
   }
   
   public HttpResponse getResponse(HttpRequest request)

@@ -19,10 +19,11 @@ public class ResumePolicy
   
   public Resume saveNewOrRetrieveExistingResume(Jobseeker jobseeker, boolean useExistingResume, boolean makeResumeActive, String newResumeFileName)
   {
-    Resume resume;
+    Resume resume = null;
     if (!useExistingResume)
     {
-      resume = resumeManager.saveResume(jobseeker, newResumeFileName);
+      if (newResumeFileName !=null)
+        resume = resumeManager.saveResume(jobseeker, newResumeFileName);
 
       if (resume != null && makeResumeActive)
       {

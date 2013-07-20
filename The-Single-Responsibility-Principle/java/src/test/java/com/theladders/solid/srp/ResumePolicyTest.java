@@ -83,6 +83,11 @@ public class ResumePolicyTest
     assertEquals("ResumePolicy must return correct active resume", expected, actual);
   }
 
+  private void thenReceiveNullResume(Resume resume)
+  {
+    assertNull("ResumePolicy must return correct active resume", resume);
+  }
+
   @Test
   public void testWithExistingResume()
   {
@@ -99,12 +104,12 @@ public class ResumePolicyTest
     thenReceiveNewResume(newResume, activeResume);
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test
   public void testWithNoResume()
   {
     givenUsingNoResume();
     whenSavingNewOrRetrievingExistingResume();
-    //then get exception
+    thenReceiveNullResume(activeResume);
   }
 
 }
