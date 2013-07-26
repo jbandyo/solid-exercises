@@ -1,34 +1,41 @@
 package com.theladders.solid.ocp.resume;
 
-import java.util.EnumSet;
+import java.util.*;
 
-public enum ConfidentialPhraseCategory
+public class ConfidentialPhraseCategory
 {
-  Name(76),
-  MailingAddress(79),
-  PhoneNumber(78),
-  EmailAddress(77),
-  ContactInfo(80),
-  CompanyName(81),
-  WorkExperience(82);
-
-  public static final EnumSet<ConfidentialPhraseCategory> allCategories;
-  public static final EnumSet<ConfidentialPhraseCategory> allContactInfo;
+  private Set<String> allCategories = new HashSet<String>();
+  private Set<String> allContactInfo = new HashSet<String>();
   
-  static
+  public ConfidentialPhraseCategory()
   {
-    allCategories = EnumSet.allOf(ConfidentialPhraseCategory.class);
-    allContactInfo = EnumSet.of(ConfidentialPhraseCategory.PhoneNumber,
-                             ConfidentialPhraseCategory.EmailAddress,
-                             ConfidentialPhraseCategory.MailingAddress,
-                             ConfidentialPhraseCategory.ContactInfo);
+    addPhraseCategory("Name", false);
+    addPhraseCategory("MailingAddress", true);
+    addPhraseCategory("PhoneNumber", true);
+    addPhraseCategory("EmailAddress", true);
+    addPhraseCategory("ContactInfo", true);
+    addPhraseCategory("CompanyName", false);
+    addPhraseCategory("WorkExperience", false);
   }
   
-  @SuppressWarnings("unused")
-  private int id;
-
-  private ConfidentialPhraseCategory(int id)
+  public void addPhraseCategory(String category, boolean isContactInfo)
   {
-    this.id = id;
+    assert(category != null);
+    assert(category.length() != 0);
+    
+    allCategories.add(category);
+    if (isContactInfo)
+      allContactInfo.add(category);
   }
+  
+  public String[] getAllCategoryPhrases()
+  {
+    return (String[])allCategories.toArray();
+  }
+  
+  public String[] getAllContactInfoPhrases()
+  {
+    return (String[])allContactInfo.toArray();
+  }
+
 }

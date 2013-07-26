@@ -18,13 +18,13 @@ public class ConfidentialResumeHandler
     this.jobseekerConfidentialityProfileDao = jobseekerConfidentialityProfileDao;
   }
 
-  public void makeSelectedCategoriesNonConfidential(User user, EnumSet<ConfidentialPhraseCategory> selection)
+  public void makeSelectedCategoriesNonConfidential(User user, String[] selection)
   {
     JobseekerProfile jsp = jobSeekerProfileManager.getJobSeekerProfile(user);
     JobseekerConfidentialityProfile profile = jobseekerConfidentialityProfileDao.fetchJobSeekerConfidentialityProfile(jsp.getId());
 
     boolean isChanged = false;
-    for (ConfidentialPhraseCategory category : selection)
+    for (String category : selection)
     {
       isChanged = profile.resetConfidentialFlagsForCategory(category) || isChanged;
     }

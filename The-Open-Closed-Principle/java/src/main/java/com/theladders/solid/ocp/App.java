@@ -1,6 +1,7 @@
 package com.theladders.solid.ocp;
 
 import com.theladders.solid.ocp.jobseeker.JobseekerConfidentialityProfileDao;
+import com.theladders.solid.ocp.resume.ConfidentialPhraseCategory;
 import com.theladders.solid.ocp.resume.ConfidentialResumeHandler;
 import com.theladders.solid.ocp.resume.JobseekerProfileManager;
 import com.theladders.solid.ocp.resume.ResumeConfidentialityManager;
@@ -13,7 +14,8 @@ public class App
     JobseekerProfileManager jobseekerProfileManager = new JobseekerProfileManager();
     JobseekerConfidentialityProfileDao jobseekerConfidentialityProfileDao = new JobseekerConfidentialityProfileDao();
     ConfidentialResumeHandler confidentialResumeHandler = new ConfidentialResumeHandler(jobseekerProfileManager, jobseekerConfidentialityProfileDao);
-    ResumeConfidentialityManager resumeConfidentialityManager = new ResumeConfidentialityManager(confidentialResumeHandler);
+    ConfidentialPhraseCategory confidentialPhraseCategory = new ConfidentialPhraseCategory();
+    ResumeConfidentialityManager resumeConfidentialityManager = new ResumeConfidentialityManager(confidentialResumeHandler, confidentialPhraseCategory);
 
     int id = 1; // get from command line?
     User user = new User(id);

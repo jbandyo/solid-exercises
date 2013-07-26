@@ -5,23 +5,23 @@ import com.theladders.solid.ocp.user.User;
 public class ResumeConfidentialityManager
 {
   private final ConfidentialResumeHandler confidentialResumeHandler;
-  
-  //private final EnumSet<ConfidentialPhraseCategory> allCategories;
-  
+  private final ConfidentialPhraseCategory confidentialPhraseCategory;
+   
 
-  public ResumeConfidentialityManager(ConfidentialResumeHandler confidentialResumeHandler)
+  public ResumeConfidentialityManager(ConfidentialResumeHandler confidentialResumeHandler,
+                                      ConfidentialPhraseCategory confidentialPhraseCategory)
   {
     this.confidentialResumeHandler = confidentialResumeHandler;
-    //allCategories = EnumSet.allOf(ConfidentialPhraseCategory.class);
+    this.confidentialPhraseCategory = confidentialPhraseCategory;
   }
 
   public void makeAllContactInfoNonConfidential(User user)
   {
-    confidentialResumeHandler.makeSelectedCategoriesNonConfidential(user, ConfidentialPhraseCategory.allContactInfo);
+    confidentialResumeHandler.makeSelectedCategoriesNonConfidential(user, confidentialPhraseCategory.getAllContactInfoPhrases());
   }
 
   public void makeAllCategoriesNonConfidential(User user)
   {
-    confidentialResumeHandler.makeSelectedCategoriesNonConfidential(user, ConfidentialPhraseCategory.allCategories);
+    confidentialResumeHandler.makeSelectedCategoriesNonConfidential(user, confidentialPhraseCategory.getAllCategoryPhrases());
   }
 }

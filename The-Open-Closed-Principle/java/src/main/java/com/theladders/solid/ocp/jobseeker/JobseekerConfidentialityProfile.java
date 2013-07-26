@@ -16,7 +16,7 @@ public class JobseekerConfidentialityProfile
     confidentialityProfile = new HashMap<>();
   }
 
-  public boolean resetConfidentialFlagsForCategory(ConfidentialPhraseCategory category)
+  public boolean resetConfidentialFlagsForCategory(String category)
   {
     boolean isChanged = false;
 
@@ -36,8 +36,8 @@ public class JobseekerConfidentialityProfile
     return isChanged;
   }
 
-  private List<ConfidentialPhrase> getConfidentialPhrases(ConfidentialPhraseCategory category)
+  private List<ConfidentialPhrase> getConfidentialPhrases(String category)
   {
-    return confidentialityProfile.get(category.name());
+    return confidentialityProfile.get(category);
   }
 }
