@@ -8,7 +8,17 @@ import com.theladders.solid.isp.oldjob.stubs.Experience;
 import com.theladders.solid.isp.oldjob.stubs.Industry;
 import com.theladders.solid.isp.oldjob.stubs.Region;
 
-public abstract class JobImpl implements JobCommon
+public abstract class JobImpl implements JobWithBasicInfo, 
+                                         JobWithDetailsInfo, 
+                                         JobWithCompanyInfo, 
+                                         JobWithCompensationInfo,
+                                         JobWithDateInfo,
+                                         JobWithGroupInfo,
+                                         JobWithTypeInfo,
+                                         JobWithInternalInfo,
+                                         JobWithLocationInfo,
+                                         JobWithPositionInfo,
+                                         JobWithStatusInfo
 {
   private String                   company;
   private Integer                  companySize;
