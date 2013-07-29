@@ -6,18 +6,7 @@ public class ConfidentialPhraseCategory
 {
   private Set<String> allCategories = new HashSet<String>();
   private Set<String> allContactInfo = new HashSet<String>();
-  
-  public ConfidentialPhraseCategory()
-  {
-    addPhraseCategory("Name", false);
-    addPhraseCategory("MailingAddress", true);
-    addPhraseCategory("PhoneNumber", true);
-    addPhraseCategory("EmailAddress", true);
-    addPhraseCategory("ContactInfo", true);
-    addPhraseCategory("CompanyName", false);
-    addPhraseCategory("WorkExperience", false);
-  }
-  
+    
   public void addPhraseCategory(String category, boolean isContactInfo)
   {
     assert(category != null);

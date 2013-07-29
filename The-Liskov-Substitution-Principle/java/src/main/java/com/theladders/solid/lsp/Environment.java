@@ -11,6 +11,16 @@ public class Environment extends HashMap<Object, Object>
     super();
   }
 
+  public Environment(int initialCapacity)
+  {
+    super(initialCapacity);
+  }
+
+  public Environment(int initialCapacity, float loadFactor)
+  {
+    super(initialCapacity, loadFactor);
+  }
+
   /**
    * Convenience method that returns the admin email address for this ladder.
    *

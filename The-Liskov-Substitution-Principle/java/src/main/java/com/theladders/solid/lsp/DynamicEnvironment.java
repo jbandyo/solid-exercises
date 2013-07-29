@@ -64,7 +64,7 @@ public class DynamicEnvironment extends Environment
   public Set<Object> keySet()
   {
     Set<Object> keySet = new HashSet<>(super.keySet());
-    keySet.addAll(keyMap.keySet());
+    //keySet.addAll(keyMap.keySet());
     keySet.addAll(base.keySet());
     return Collections.unmodifiableSet(keySet);
   }
