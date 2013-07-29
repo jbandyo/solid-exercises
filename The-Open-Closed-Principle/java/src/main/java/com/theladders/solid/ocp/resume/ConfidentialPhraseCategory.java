@@ -28,14 +28,16 @@ public class ConfidentialPhraseCategory
       allContactInfo.add(category);
   }
   
-  public String[] getAllCategoryPhrases()
+  public Set<String> getAllCategories()
   {
-    return (String[])allCategories.toArray();
+    Set<String> rset = new HashSet<String>(allCategories);
+    return Collections.unmodifiableSet(rset);
   }
   
-  public String[] getAllContactInfoPhrases()
+  public Set<String> getAllContactInfoCategories()
   {
-    return (String[])allContactInfo.toArray();
+    Set<String> rset = new HashSet<String>(allContactInfo);
+    return Collections.unmodifiableSet(rset);
   }
 
 }

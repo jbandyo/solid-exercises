@@ -1,6 +1,7 @@
 package com.theladders.solid.ocp.resume;
 
 import java.util.EnumSet;
+import java.util.Set;
 
 import com.theladders.solid.ocp.jobseeker.JobseekerConfidentialityProfile;
 import com.theladders.solid.ocp.jobseeker.JobseekerConfidentialityProfileDao;
@@ -18,7 +19,7 @@ public class ConfidentialResumeHandler
     this.jobseekerConfidentialityProfileDao = jobseekerConfidentialityProfileDao;
   }
 
-  public void makeSelectedCategoriesNonConfidential(User user, String[] selection)
+  public void makeSelectedCategoriesNonConfidential(User user, Set<String> selection)
   {
     JobseekerProfile jsp = jobSeekerProfileManager.getJobSeekerProfile(user);
     JobseekerConfidentialityProfile profile = jobseekerConfidentialityProfileDao.fetchJobSeekerConfidentialityProfile(jsp.getId());

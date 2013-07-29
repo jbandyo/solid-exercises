@@ -7,7 +7,6 @@ public class ResumeConfidentialityManager
   private final ConfidentialResumeHandler confidentialResumeHandler;
   private final ConfidentialPhraseCategory confidentialPhraseCategory;
    
-
   public ResumeConfidentialityManager(ConfidentialResumeHandler confidentialResumeHandler,
                                       ConfidentialPhraseCategory confidentialPhraseCategory)
   {
@@ -17,11 +16,11 @@ public class ResumeConfidentialityManager
 
   public void makeAllContactInfoNonConfidential(User user)
   {
-    confidentialResumeHandler.makeSelectedCategoriesNonConfidential(user, confidentialPhraseCategory.getAllContactInfoPhrases());
+    confidentialResumeHandler.makeSelectedCategoriesNonConfidential(user, confidentialPhraseCategory.getAllContactInfoCategories());
   }
 
   public void makeAllCategoriesNonConfidential(User user)
   {
-    confidentialResumeHandler.makeSelectedCategoriesNonConfidential(user, confidentialPhraseCategory.getAllCategoryPhrases());
+    confidentialResumeHandler.makeSelectedCategoriesNonConfidential(user, confidentialPhraseCategory.getAllCategories());
   }
 }
